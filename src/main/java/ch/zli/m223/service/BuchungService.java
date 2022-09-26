@@ -18,7 +18,7 @@ import ch.zli.m223.model.Buchung;
 @ApplicationScoped
 public class BuchungService {
     @Inject
-    private EntityManager entityManager;
+    EntityManager entityManager;
 
     public List<Buchung> findAll() {
         var query = entityManager.createQuery("FROM Buchung", Buchung.class);

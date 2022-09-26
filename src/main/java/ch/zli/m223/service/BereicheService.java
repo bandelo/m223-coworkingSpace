@@ -18,7 +18,7 @@ import ch.zli.m223.model.Bereiche;
 @ApplicationScoped
 public class BereicheService {
     @Inject
-    private EntityManager entityManager;
+    EntityManager entityManager;
 
     public List<Bereiche> findAll() {
         var query = entityManager.createQuery("FROM Bereiche", Bereiche.class);

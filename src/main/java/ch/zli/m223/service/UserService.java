@@ -18,7 +18,7 @@ import ch.zli.m223.model.User;
 @ApplicationScoped
 public class UserService {
     @Inject
-    private EntityManager entityManager;
+    EntityManager entityManager;
 
     public List<User> findAll() {
         var query = entityManager.createQuery("FROM User", User.class);
