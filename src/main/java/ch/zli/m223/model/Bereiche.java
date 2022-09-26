@@ -1,9 +1,13 @@
 package ch.zli.m223.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
@@ -13,6 +17,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
  * This is the model for the Bereiche
  */
 
+@Entity
 public class Bereiche {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +29,9 @@ public class Bereiche {
 
     @Column(nullable = false)
     private String category;
+
+    @OneToMany(mappedBy = "bereiche")
+    private Set<Buchung> buchung;
 
     public Long getId() {
         return this.id;

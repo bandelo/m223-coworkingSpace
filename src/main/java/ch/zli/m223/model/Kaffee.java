@@ -1,9 +1,13 @@
 package ch.zli.m223.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
@@ -13,7 +17,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
  * This is the model for the Kaffee
  */
 
-
+@Entity
 public class Kaffee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +29,9 @@ public class Kaffee {
 
     @Column(nullable = false)
     private Float price;
+
+    @ManyToMany(mappedBy = "kaffee")
+    private Set<User> user;
 
     public Long getId() {
         return this.id;

@@ -1,9 +1,12 @@
 package ch.zli.m223.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
@@ -13,6 +16,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
  * This is the model for the Buchung
  */
 
+@Entity
 public class Buchung {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +28,12 @@ public class Buchung {
 
     @Column(nullable = false)
     private Boolean halfDay;
+
+    @ManyToOne
+    private Bereiche bereiche;
+
+    @ManyToOne
+    private User user;
 
     public Long getId() {
         return this.id;
