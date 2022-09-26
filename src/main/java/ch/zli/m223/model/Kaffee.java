@@ -10,17 +10,21 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 /*
  * @author Andelo Batinic
  * @date 26.09 2022
- * This is the model for the Role
+ * This is the model for the Kaffee
  */
 
-public class Role {
+
+public class Kaffee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(readOnly = true)
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String type;
+
+    @Column(nullable = false)
+    private Float price;
 
     public Long getId() {
         return this.id;
@@ -30,12 +34,20 @@ public class Role {
         this.id = id;
     }
 
-    public String getName() {
-        return this.name;
+    public String getType() {
+        return this.type;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Float getPrice() {
+        return this.price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
     }
 
 }
