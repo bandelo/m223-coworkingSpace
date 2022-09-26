@@ -10,20 +10,20 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 /*
  * @author Andelo Batinic
  * @date 26.09 2022
- * This is the model for the Selecta
+ * This is the model for the Buchung
  */
 
-public class Selecta {
+public class Buchung {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(readOnly = true)
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private Boolean status;
 
     @Column(nullable = false)
-    private Float price;
+    private Boolean halfDay;
 
     public Long getId() {
         return this.id;
@@ -33,20 +33,20 @@ public class Selecta {
         this.id = id;
     }
 
-    public String getName() {
-        return this.name;
+    public Boolean getStatus() {
+        return this.status;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
-    public Float getPrice() {
-        return this.price;
+    public Boolean getHalfDay() {
+        return this.halfDay;
     }
 
-    public void setPrice(Float price) {
-        this.price = price;
+    public void setHalfDay(Boolean halfDay) {
+        this.halfDay = halfDay;
     }
-    
+
 }
