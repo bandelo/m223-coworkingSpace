@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import ch.zli.m223.model.Buchung;
-import ch.zli.m223.service.BuchungService;
+import ch.zli.m223.service.UserService;
 
 /*
  * @author Andelo Batinic
@@ -28,5 +28,5 @@ import ch.zli.m223.service.BuchungService;
 @Tag(name = "User", description = "Handling of User")
 public class UserController {
     @Inject
-    BuchungService buchungService;
+    UserService userService;
 }
