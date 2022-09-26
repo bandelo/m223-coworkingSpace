@@ -9,6 +9,11 @@ import javax.transaction.Transactional;
 
 import ch.zli.m223.model.Buchung;
 
+/*
+ * @author Andelo Batinic
+ * @version 26.09 2022
+ * This service handles the endpoint-methods for the Buchung
+ */
 
 @ApplicationScoped
 public class BuchungService {

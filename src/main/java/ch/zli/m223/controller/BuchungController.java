@@ -3,7 +3,6 @@ package ch.zli.m223.controller;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.print.attribute.standard.Media;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,6 +17,12 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import ch.zli.m223.model.Buchung;
 import ch.zli.m223.service.BuchungService;
+
+/*
+ * @author Andelo Batinic
+ * @version 26.09 2022
+ * This controller handles the endpoint for the Buchung
+ */
 
 @Path("/buchung")
 @Tag(name = "Buchungen", description = "Handling of Buchungen")
