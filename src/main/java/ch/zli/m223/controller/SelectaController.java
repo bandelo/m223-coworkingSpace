@@ -15,39 +15,39 @@ import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
-import ch.zli.m223.model.Kaffee;
-import ch.zli.m223.service.KaffeeService;
+import ch.zli.m223.model.Selecta;
+import ch.zli.m223.service.SelectaService;
 
 /*
  * @author Andelo Batinic
  * @version 26.09 2022
- * This controller handles the endpoint for the Kaffee
+ * This controller handles the endpoint for the Selecta
  */
 
-@Path("/kaffee")
-@Tag(name = "Kaffee", description = "Handling of Kaffee")
-public class KaffeeController {
+@Path("/selecta")
+@Tag(name = "Selecta", description = "Handling of Selecta")
+public class SelectaController {
     
     @Inject
-    KaffeeService kaffeeService;
+    SelectaService selectaService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)   
-    public List<Kaffee> getKaffee() {
-        return kaffeeService.findAll();
+    public List<Selecta> getSelecta() {
+        return selectaService.findAll();
     }
 
     @Path("/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Kaffee getOneKaffee(@PathParam("id") Long id) {
-        return kaffeeService.findById(id);
+    public Selecta getOneSelecta(@PathParam("id") Long id) {
+        return selectaService.findById(id);
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Kaffee create(Kaffee kaffee) {
-        return kaffeeService.createKaffee(kaffee);
+    public Selecta create(Selecta selecta) {
+        return selectaService.createSelecta(selecta);
     }
 }
