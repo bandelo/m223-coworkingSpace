@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /*
  * @author Andelo Batinic
  * @date 26.09 2022
@@ -44,13 +46,16 @@ public class User {
     private Role role;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private Set<Buchung> buchung;
 
     @ManyToMany
+    @JsonIgnore
     @JoinTable(name = "selecta_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "selecta_id"))
     private Set<Selecta> selecta;
 
     @ManyToMany
+    @JsonIgnore
     @JoinTable(name = "kaffe_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "kaffee_id"))
     private Set<Kaffee> kaffee;
 

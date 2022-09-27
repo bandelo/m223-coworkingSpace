@@ -38,8 +38,7 @@ public class RegisterController {
     @Consumes(MediaType.APPLICATION_JSON)
     public User create(User user) {
         user = userService.createUser(user);
-        Role role = new Role();
-        role.setName("mitglied");
+        
         return user;
     }
 }
