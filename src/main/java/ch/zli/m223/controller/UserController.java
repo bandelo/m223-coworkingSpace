@@ -32,7 +32,7 @@ public class UserController {
     UserService userService;
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)   
+    @Produces(MediaType.APPLICATION_JSON)  
     public List<User> getUsers() {
         return userService.findAll();
     }
@@ -45,7 +45,6 @@ public class UserController {
     }
 
     @POST
-    @RolesAllowed({"admin", "mitglied"})
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public User create(User user) {

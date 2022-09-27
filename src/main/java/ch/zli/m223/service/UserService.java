@@ -22,6 +22,7 @@ public class UserService {
 
     public List<User> findAll() {
         var query = entityManager.createQuery("FROM User", User.class);
+        System.out.println(query.getResultList());
         return query.getResultList();
     }
 

@@ -22,6 +22,7 @@ public class RoleService {
 
     public List<Role> findAll() {
         var query = entityManager.createQuery("FROM Role", Role.class);
+        System.out.println(query.getResultList());
         return query.getResultList();
     }
 
