@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
@@ -27,12 +29,15 @@ public class Bereiche {
     private Long id;
 
     @Column(nullable = false)
+    @Min(value = 2)
     private String name;
 
     @Column(nullable = false)
+    @Min(value = 2)
     private String category;
 
     @Column(nullable = false)
+    @NotBlank
     private Boolean isFree;
 
     @OneToMany(mappedBy = "bereiche")

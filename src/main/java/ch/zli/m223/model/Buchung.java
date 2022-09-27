@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.type.TrueFalseType;
@@ -26,9 +27,11 @@ public class Buchung {
     private Long id;
 
     @Column(nullable = false)
+    @NotBlank
     private Boolean status;
 
     @Column(nullable = false)
+    @NotBlank
     private Boolean halfDay;
 
     @Column(nullable = true)

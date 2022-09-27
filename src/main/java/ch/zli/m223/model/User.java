@@ -12,6 +12,10 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
@@ -31,15 +35,20 @@ public class User {
     private Long id;
 
     @Column(nullable = false)
+    @Size(min = 2, max = 30)
     private String vorname;
 
     @Column(nullable = false)
+    @Size(min = 2, max = 30)
     private String nachname;
 
     @Column(nullable = false)
+    @Email
+    @NotBlank
     private String email;
 
     @Column(nullable = false)
+    @Min(4)
     private String password;
 
     @ManyToOne
