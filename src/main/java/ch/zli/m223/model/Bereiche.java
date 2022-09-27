@@ -30,6 +30,9 @@ public class Bereiche {
     @Column(nullable = false)
     private String category;
 
+    @Column(nullable = false)
+    private Boolean isFree;
+
     @OneToMany(mappedBy = "bereiche")
     private Set<Buchung> buchung;
 
