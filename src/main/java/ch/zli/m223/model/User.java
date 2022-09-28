@@ -48,7 +48,7 @@ public class User {
     private String email;
 
     @Column(nullable = false)
-    @Min(4)
+    @NotBlank
     private String password;
 
     @ManyToOne

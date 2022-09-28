@@ -12,11 +12,11 @@ import ch.zli.m223.model.User;
 /*
  * @author Andelo Batinic
  * @version 26.09 2022
- * This service handles the endpoint-methods for the Login
+ * This service handles the endpoint-methods for the Auth
  */
 
 @ApplicationScoped
-public class LoginService {
+public class AuthService {
     @Inject
     EntityManager entityManager;
 
