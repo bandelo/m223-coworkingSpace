@@ -2,6 +2,7 @@ package ch.zli.m223.controller;
 
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -32,6 +33,7 @@ public class SelectaController {
     SelectaService selectaService;
 
     @GET
+    @PermitAll
     @Produces(MediaType.APPLICATION_JSON)   
     public List<Selecta> getSelecta() {
         return selectaService.findAll();
@@ -39,12 +41,14 @@ public class SelectaController {
 
     @Path("/{id}")
     @GET
+    @PermitAll
     @Produces(MediaType.APPLICATION_JSON)
     public Selecta getOneSelecta(@PathParam("id") Long id) {
         return selectaService.findById(id);
     }
 
     @POST
+    @PermitAll
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Selecta create(Selecta selecta) {

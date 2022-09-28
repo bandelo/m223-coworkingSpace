@@ -2,6 +2,7 @@ package ch.zli.m223.controller;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -32,6 +33,7 @@ public class RoleController {
     RoleService roleService;
 
     @GET
+    @RolesAllowed({"admin"})
     @Produces(MediaType.APPLICATION_JSON)   
     public List<Role> getRole() {
         return roleService.findAll();
@@ -39,12 +41,14 @@ public class RoleController {
 
     @Path("/{id}")
     @GET
+    @RolesAllowed({"admin"})
     @Produces(MediaType.APPLICATION_JSON)
     public Role getOneRole(@PathParam("id") Long id) {
         return roleService.findById(id);
     }
 
     @POST
+    @RolesAllowed({"admin"})
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Role create(Role role) {

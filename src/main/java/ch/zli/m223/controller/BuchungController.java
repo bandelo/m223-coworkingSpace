@@ -2,6 +2,7 @@ package ch.zli.m223.controller;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -32,6 +33,7 @@ public class BuchungController {
     BuchungService buchungService;
 
     @GET
+    @RolesAllowed({"admin", "mitglied"})
     @Produces(MediaType.APPLICATION_JSON)   
     public List<Buchung> getBuchungen() {
         return buchungService.findAll();
@@ -39,12 +41,14 @@ public class BuchungController {
 
     @Path("/{id}")
     @GET
+    @RolesAllowed({"admin", "mitglied"})
     @Produces(MediaType.APPLICATION_JSON)
     public Buchung getOneBuchung(@PathParam("id") Long id) {
         return buchungService.findById(id);
     }
 
     @POST
+    @RolesAllowed({"admin", "mitglied"})
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Buchung create(Buchung buchung) {
@@ -52,12 +56,14 @@ public class BuchungController {
     }
 
     @Path("/{id}")
+    @RolesAllowed({"admin"})
     @PUT
     public Buchung update(@PathParam("id") Long id, Buchung buchung){
         return buchungService.updateBuchung(id, buchung);
     }
 
     @Path("/{id}")
+    @RolesAllowed({"admin", "mitglied"})
     @DELETE
     public void delete(@PathParam("id") Long id) {
         buchungService.deleteBuchung(id);
