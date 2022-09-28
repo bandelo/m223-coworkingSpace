@@ -8,9 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.type.TrueFalseType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /*
  * @author Andelo Batinic
@@ -26,9 +30,11 @@ public class Buchung {
     private Long id;
 
     @Column(nullable = false)
+    @NotEmpty
     private Boolean status;
 
     @Column(nullable = false)
+    @NotEmpty
     private Boolean halfDay;
 
     @Column(nullable = true)
@@ -38,6 +44,7 @@ public class Buchung {
     private Bereiche bereiche;
 
     @ManyToOne
+    @JsonIgnore
     private User user;
 
     public Long getId() {

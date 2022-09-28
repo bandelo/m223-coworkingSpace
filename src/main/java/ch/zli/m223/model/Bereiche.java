@@ -8,8 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /*
  * @author Andelo Batinic
@@ -25,15 +30,18 @@ public class Bereiche {
     private Long id;
 
     @Column(nullable = false)
+    @Min(value = 2)
     private String name;
 
     @Column(nullable = false)
+    @Min(value = 2)
     private String category;
 
     @Column(nullable = false)
     private Boolean isFree;
 
     @OneToMany(mappedBy = "bereiche")
+    @JsonIgnore
     private Set<Buchung> buchung;
 
     public Long getId() {

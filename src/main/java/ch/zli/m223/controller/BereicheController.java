@@ -2,6 +2,7 @@ package ch.zli.m223.controller;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -32,6 +33,7 @@ public class BereicheController {
     BereicheService bereicheService;
 
     @GET
+    @RolesAllowed({"admin", "mitglied"})
     @Produces(MediaType.APPLICATION_JSON)   
     public List<Bereiche> getBereicheen() {
         return bereicheService.findAll();
@@ -39,12 +41,14 @@ public class BereicheController {
 
     @Path("/{id}")
     @GET
+    @RolesAllowed({"admin"})
     @Produces(MediaType.APPLICATION_JSON)
     public Bereiche getOneBereich(@PathParam("id") Long id) {
         return bereicheService.findById(id);
     }
 
     @POST
+    @RolesAllowed({"admin"})
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Bereiche create(Bereiche bereich) {
@@ -52,12 +56,14 @@ public class BereicheController {
     }
 
     @Path("/{id}")
+    @RolesAllowed({"admin"})
     @PUT
     public Bereiche update(@PathParam("id") Long id, Bereiche bereiche){
         return bereicheService.updateBereich(id, bereiche);
     }
 
     @Path("/{id}")
+    @RolesAllowed({"admin"})
     @DELETE
     public void delete(@PathParam("id") Long id) {
         bereicheService.deleteBereich(id);

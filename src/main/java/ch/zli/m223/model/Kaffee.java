@@ -8,8 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import io.smallrye.common.constraint.NotNull;
 
 /*
  * @author Andelo Batinic
@@ -25,9 +29,11 @@ public class Kaffee {
     private Long id;
 
     @Column(nullable = false)
+    @Min(value = 2)
     private String type;
 
     @Column(nullable = false)
+    @NotNull
     private Float price;
 
     @ManyToMany(mappedBy = "kaffee")
