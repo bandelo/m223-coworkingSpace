@@ -2,14 +2,21 @@ package ch.zli.m223.model;
 
 import java.util.Set;
 
+import javax.enterprise.inject.Default;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.hibernate.annotations.ColumnDefault;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /*
  * @author Andelo Batinic
@@ -25,9 +32,11 @@ public class Role {
     private Long id;
 
     @Column(nullable = false)
+    @NotEmpty
     private String name;
 
     @OneToMany(mappedBy = "role")
+    @JsonIgnore
     private Set<User> user;
 
     public Long getId() {
