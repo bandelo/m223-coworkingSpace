@@ -42,7 +42,11 @@ public class UserController {
     @RolesAllowed({"admin"})
     @Produces(MediaType.APPLICATION_JSON)
     public User getOneUser(@PathParam("id") Long id) {
-        return userService.findById(id);
+        if (id instanceof Long || id >= 1) {
+            return userService.findById(id);
+        } else {
+            throw new IllegalStateException(id + "is not a Long or is not equal or greater than 1");
+        }
     }
 
     @POST
@@ -57,7 +61,11 @@ public class UserController {
     @PUT
     @RolesAllowed({"admin"})
     public User update(@PathParam("id") Long id, User user){
-        return userService.updateUser(id, user);
+        if (id instanceof Long || id >= 1) {
+            return userService.updateUser(id, user);
+        } else {
+            throw new IllegalStateException(id + "is not a Long or is not equal or greater than 1");
+        }
     }
 
     @Path("/{id}")

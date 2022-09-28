@@ -44,7 +44,11 @@ public class BuchungController {
     @RolesAllowed({"admin", "mitglied"})
     @Produces(MediaType.APPLICATION_JSON)
     public Buchung getOneBuchung(@PathParam("id") Long id) {
-        return buchungService.findById(id);
+        if (id >= 1) {
+            return buchungService.findById(id);
+        } else {
+            throw new IllegalArgumentException("Id should be greater than 1");
+        }
     }
 
     @POST
@@ -59,7 +63,11 @@ public class BuchungController {
     @RolesAllowed({"admin"})
     @PUT
     public Buchung update(@PathParam("id") Long id, Buchung buchung){
-        return buchungService.updateBuchung(id, buchung);
+        if (id >= 1) {
+            return buchungService.updateBuchung(id, buchung);
+        } else {
+            throw new IllegalArgumentException("Id should be greater than 1");
+        }
     }
 
     @Path("/{id}")

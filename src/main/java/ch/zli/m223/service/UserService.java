@@ -7,6 +7,9 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+
+import ch.zli.m223.model.Role;
 import ch.zli.m223.model.User;
 
 /*
