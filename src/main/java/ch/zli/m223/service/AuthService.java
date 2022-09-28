@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import javax.ws.rs.core.Response;
 
 import org.eclipse.microprofile.jwt.JsonWebToken;
+import org.hibernate.query.criteria.internal.expression.function.AggregationFunction.MAX;
 
 import ch.zli.m223.model.User;
 
@@ -42,13 +43,11 @@ public class AuthService {
                 String token = Jwt.issuer("https://example.com/issuer")
                         .upn(user.getEmail())
                         .groups(user.getRole().getName())
-                        .expiresIn(86400)
+                        .expiresIn(Integer.MAX_VALUE)
                         .sign();
                 return jwt = token;
-            } else if (!user.getEmail().equals(email) || !user.getPassword().equals(password)) {
-                throw new IllegalArgumentException("Your Email or Password is wrong");
             }
         }
-        return jwt;
+        throw new IllegalArgumentException("Your Email or Password is wrong");
     }
 }
