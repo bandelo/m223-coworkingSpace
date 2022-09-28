@@ -53,6 +53,7 @@ public class User {
     private String password;
 
     @ManyToOne
+    @JsonIgnore
     private Role role;
 
     @OneToMany(mappedBy = "user")
@@ -64,11 +65,44 @@ public class User {
     @JoinTable(name = "selecta_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "selecta_id"))
     private Set<Selecta> selecta;
 
+
     @ManyToMany
     @JsonIgnore
     @JoinTable(name = "kaffe_user", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "kaffee_id"))
     private Set<Kaffee> kaffee;
 
+    public Kaffee getKaffee() {
+        return (Kaffee) this.kaffee;
+    }
+
+    public void setKaffee(Object kaffee) {
+        this.kaffee = (Set<Kaffee>) kaffee;
+    };
+
+    public Selecta getSelecta() {
+        return (Selecta) this.selecta;
+    }
+
+    public void setSelecta(Object selecta) {
+        this.selecta = (Set<Selecta>) selecta;
+    };
+
+    public Buchung getBuchung() {
+        return (Buchung) this.buchung;
+    }
+
+    public void setBuchung(Object buchung) {
+        this.buchung = (Set<Buchung>) buchung;
+    }
+
+    public Role getRole() {
+        return this.role;
+    }
+
+    public void setRole(Object role) {
+        this.role = (Role) role;
+    };
+    
     public Long getId() {
         return this.id;
     }

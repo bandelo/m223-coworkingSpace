@@ -32,7 +32,6 @@ public class UserController {
     UserService userService;
 
     @GET
-    @RolesAllowed({"admin"})
     @Produces(MediaType.APPLICATION_JSON)  
     public List<User> getUsers() {
         return userService.findAll();

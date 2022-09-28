@@ -44,6 +44,14 @@ public class Bereiche {
     @JsonIgnore
     private Set<Buchung> buchung;
 
+    public Object getBuchung() {
+        return this.buchung;
+    }
+
+    public void setBuchung(Object buchung) {
+        this.buchung = (Set<Buchung>) buchung;
+    };
+
     public Long getId() {
         return this.id;
     }

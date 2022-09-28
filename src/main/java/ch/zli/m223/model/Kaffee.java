@@ -39,6 +39,14 @@ public class Kaffee {
     @ManyToMany(mappedBy = "kaffee")
     private Set<User> user;
 
+    public Object getUser() {
+        return this.user;
+    }
+
+    public void setUser(Object user) {
+        this.user = (Set<User>) user;
+    };
+
     public Long getId() {
         return this.id;
     }
