@@ -47,6 +47,14 @@ public class Buchung {
     @JsonIgnore
     private User user;
 
+    public Object getUser() {
+        return this.user;
+    }
+
+    public void setUser(Object user) {
+        this.user = (User) user;
+    };
+
     public Long getId() {
         return this.id;
     }

@@ -41,10 +41,10 @@ public class AuthService {
             if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
                 String token = Jwt.issuer("https://example.com/issuer")
                         .upn(user.getEmail())
-                        .groups(new HashSet<>(Arrays.asList("mitglied", "admin")))
+                        .groups(user.getRole().getName())
                         .expiresIn(86400)
                         .sign();
-                jwt = token;
+                return token;
             } else {
                 jwt = "Your email or password is wrong";
             }
