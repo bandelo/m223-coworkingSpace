@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.ColumnDefault;
@@ -31,8 +32,7 @@ public class Role {
     private Long id;
 
     @Column(nullable = false)
-    @NotBlank
-    @Min(value = 2)
+    @NotEmpty
     private String name;
 
     @OneToMany(mappedBy = "role")

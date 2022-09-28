@@ -13,6 +13,8 @@ import javax.validation.constraints.NotBlank;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
+import io.smallrye.common.constraint.NotNull;
+
 /*
  * @author Andelo Batinic
  * @date 26.09 2022
@@ -31,7 +33,7 @@ public class Kaffee {
     private String type;
 
     @Column(nullable = false)
-    @NotBlank
+    @NotNull
     private Float price;
 
     @ManyToMany(mappedBy = "kaffee")

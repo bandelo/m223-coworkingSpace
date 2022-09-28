@@ -41,7 +41,7 @@ public class AuthService {
             if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
                 String token = Jwt.issuer("https://example.com/issuer")
                         .upn(user.getEmail())
-                        .groups(new HashSet<>(Arrays.asList("mitglied")))
+                        .groups(new HashSet<>(Arrays.asList("mitglied", "admin")))
                         .expiresIn(86400)
                         .sign();
                 jwt = token;

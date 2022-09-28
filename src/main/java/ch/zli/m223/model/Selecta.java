@@ -11,8 +11,11 @@ import javax.persistence.ManyToMany;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+
+import io.smallrye.common.constraint.NotNull;
 
 /*
  * @author Andelo Batinic
@@ -28,12 +31,12 @@ public class Selecta {
     private Long id;
 
     @Column(nullable = false)
-    @NotBlank
+    @NotEmpty
     @Min(value = 2)
     private String name;
 
     @Column(nullable = false)
-    @NotBlank
+    @NotNull
     @Max(value = 8)
     private Float price;
 

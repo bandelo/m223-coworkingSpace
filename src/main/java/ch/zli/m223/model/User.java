@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -44,11 +45,11 @@ public class User {
 
     @Column(nullable = false)
     @Email
-    @NotBlank
+    @NotEmpty
     private String email;
 
     @Column(nullable = false)
-    @NotBlank
+    @NotEmpty
     private String password;
 
     @ManyToOne

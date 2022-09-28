@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
@@ -37,7 +38,6 @@ public class Bereiche {
     private String category;
 
     @Column(nullable = false)
-    @NotBlank
     private Boolean isFree;
 
     @OneToMany(mappedBy = "bereiche")
