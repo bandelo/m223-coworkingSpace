@@ -44,9 +44,9 @@ public class AuthService {
                         .groups(user.getRole().getName())
                         .expiresIn(86400)
                         .sign();
-                return token;
-            } else {
-                jwt = "Your email or password is wrong";
+                return jwt = token;
+            } else if (!user.getEmail().equals(email) || !user.getPassword().equals(password)) {
+                throw new IllegalArgumentException("Your Email or Password is wrong");
             }
         }
         return jwt;

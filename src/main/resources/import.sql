@@ -19,9 +19,9 @@ INSERT INTO "Role"(
 INSERT INTO "User"(id, email, nachname, password, vorname, role_id)
 	VALUES (1, 'and@bat.com', 'and', 'and', 'Jon', 1);
 INSERT INTO "User"(id, email, nachname, password, vorname, role_id)
-	VALUES (2, 'max@muster','muster', 'max123', 'max', 2);
+	VALUES (2, 'max@muster.com','muster', 'max123', 'max', 2);
 INSERT INTO "User"(id, email, nachname, password, vorname, role_id)
-	VALUES (3, 'test@test','test', 'test', 'test', 2);
+	VALUES (3, 'test@test.com','test', 'test', 'test', 2);
 
 INSERT INTO kaffe_user(
 	kaffee_id, user_id)

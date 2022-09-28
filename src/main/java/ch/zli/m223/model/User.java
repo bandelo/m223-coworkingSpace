@@ -99,7 +99,7 @@ public class User {
         return this.role;
     }
 
-    public void setRole(Object role) {
+    public void setRole(Role role) {
         this.role = (Role) role;
     };
     

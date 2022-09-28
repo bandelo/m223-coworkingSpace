@@ -42,7 +42,11 @@ public class KaffeeController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Kaffee getOneKaffee(@PathParam("id") Long id) {
-        return kaffeeService.findById(id);
+        if (id >= 1) {
+            return kaffeeService.findById(id);
+        } else {
+            throw new IllegalArgumentException("Id should be greater than 1");
+        }
     }
 
     @POST
